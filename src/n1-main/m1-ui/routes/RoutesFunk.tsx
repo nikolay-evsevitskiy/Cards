@@ -1,22 +1,22 @@
 import React from 'react';
 import {Navigate, Route, Routes} from 'react-router-dom';
-import Login from "../login/Login";
+import Login from "../../../n2-features/f1-auth/a2-login/Login";
 import AddNewPassword from "../add-new-password/AddNewPassword";
 import Error404 from "../error404/Error404";
-import Registration from "../registration/Registration";
+import Registration from "../../../n2-features/f1-auth/a1-registration/Registration";
 import Profile from "../profile/Profile";
-import TestPage from "../test-page/testPage";
+import TestPage from "../../../n2-features/f0-test/test-page/testPage";
 
 export const PATH = {
     TEST: '/test-page',
-    LOGIN: '/login',
+    LOGIN: '/a2-login',
     PASSWORD_RECOVERY: '/password-recovery',
-    REGISTRATION: '/registration',
+    REGISTRATION: '/a1-registration',
     PROFILE: '/profile'
 
 }
 
-const MainPage = () => {
+const RoutesFunk = () => {
     return (
         <div>
             <Routes>
@@ -32,4 +32,4 @@ const MainPage = () => {
     );
 };
 
-export default MainPage;
+export default RoutesFunk;

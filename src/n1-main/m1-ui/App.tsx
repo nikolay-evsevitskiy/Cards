@@ -2,9 +2,9 @@ import React from 'react';
 import './App.css';
 import {HashRouter} from "react-router-dom";
 import {Provider} from "react-redux";
-import MainPage from "./main/MainPage";
+import RoutesFunk from "./routes/RoutesFunk";
 import Header from "./header/Header";
-import {store} from "./bll/store";
+import {store} from "../m2-bll/store";
 
 function App() {
     return (
@@ -12,7 +12,7 @@ function App() {
             <Provider store={store}>
                 <HashRouter>
                     <Header/>
-                    <MainPage/>
+                    <RoutesFunk/>
                 </HashRouter>
             </Provider>
         </div>
