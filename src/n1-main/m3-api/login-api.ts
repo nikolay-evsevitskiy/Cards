@@ -12,8 +12,8 @@ export const loginUser = {
     pingServer(date: Date = new Date()) {
         return instance.get<PingServerType>(`/ping?frontTime=${date}`)
     },
-    login(email: string, password: string, rememberMe: boolean) {
-        return instance.post<UserType>('/auth/login', {email, password, rememberMe})
+    login(userData: UserDataType) {
+        return instance.post<UserType>('/auth/login', userData)
     },
     registration(email: string, password: string) {
         return instance.post<RegistrationApiType>('/auth/register', {email, password})
@@ -27,14 +27,29 @@ export const loginUser = {
     logOut() {
         return instance.delete<CommonResponseChangesType>('/auth/me')
     },
-    forgotPassword(email: string, from: string, message: string) {
-        return instance.post<CommonResponseChangesType>('/auth/forgot', {email, from, message})
+    forgotPassword(forgotData: ForgotDataType) {
+        return instance.post<CommonResponseChangesType>('/auth/forgot', forgotData)
 
     },
-    setMewPassword(password: string, resetPasswordToken: string) {
-        return instance.post<CommonResponseChangesType>('/auth/set-new-password', {password, resetPasswordToken})
+    setNewPassword(data: SetNewPasswordDataType) {
+        return instance.post<CommonResponseChangesType>('/auth/set-new-password', data)
 
     }
+}
+
+export type UserDataType = {
+    email: string
+    from: string
+    rememberMe: boolean
+}
+export type ForgotDataType = {
+    email: string
+    password: string
+    message: string
+}
+export type SetNewPasswordDataType = {
+    password: string
+    resetPasswordToken: string
 }
 
 type PingServerType = {
