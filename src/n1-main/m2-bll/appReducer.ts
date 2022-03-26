@@ -1,8 +1,6 @@
 import {Dispatch} from "redux";
 import {loginUser} from "../m3-api/login-api";
 import {AxiosError} from 'axios';
-import {Simulate} from "react-dom/test-utils";
-import error = Simulate.error;
 
 const initialState: InitialStateType = {
     isLogIn: false,
