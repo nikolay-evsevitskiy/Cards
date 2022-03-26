@@ -1,5 +1,6 @@
 import {Dispatch} from "redux";
-import {loginUser} from "../m3-api/login-api";
+import {loginUser, UpdateUserModelType} from "../m3-api/login-api";
+import {AxiosError} from "axios";
 
 const initialState = {
     name: '',
@@ -53,7 +54,36 @@ export const isLoggedIn = (isLoggedIn: boolean) => ({
 } as const)
 
 export const fetchUser = () => (dispatch: Dispatch<ActionsType>) => {
-
+    dispatch(setLoader(true))
+    loginUser.auth()
+        .then((res) => {
+            if (res.data) {
+                dispatch(setUser(res.data.addedUser.name, res.data.addedUser.avatar = ''))
+                dispatch(isLoggedIn(true))
+            }
+        })
+        .catch((e: AxiosError) => {
+            const error = e.response ? e.response.data.errors : (e.message + ', more details in the console')
+            dispatch(setError(error))
+        })
+        .finally(() => {
+            dispatch(setLoader(false))
+        })
+}
+export const updateUserName = (update: UpdateUserModelType) => (dispatch: Dispatch<ActionsType>) => {
+    dispatch(setLoader(true))
+    loginUser.changeUserProfile(update)
+        .then((res) => {
+            dispatch(updateName(res.data.updatedUser.name))
+            dispatch(updateAvatar(res.data.updatedUser.avatar = ''))
+        })
+        .catch((e: AxiosError) => {
+            const error = e.response ? e.response.data.errors : (e.message + ', more details in the console')
+            dispatch(setError(error))
+        })
+        .finally(() => {
+            dispatch(setLoader(false))
+        })
 }
 
 type ProfileInitialStateType = {

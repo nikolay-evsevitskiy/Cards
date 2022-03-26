@@ -21,8 +21,8 @@ export const loginUser = {
     auth() {
         return instance.post<RegistrationApiType>('/auth/me', {})
     },
-    changeUserProfile(name: string, avatar: string) {
-        return instance.put<ChangeUserProfileType>('/auth/me', {name, avatar})
+    changeUserProfile(model: UpdateUserModelType) {
+        return instance.put<ChangeUserProfileType>('/auth/me', model)
     },
     logOut() {
         return instance.delete<CommonResponseChangesType>('/auth/me')
@@ -35,6 +35,9 @@ export const loginUser = {
         return instance.post<CommonResponseChangesType>('/auth/set-new-password', data)
 
     }
+}
+export type UpdateUserModelType = {
+    name: string, avatar: string
 }
 
 export type UserDataType = {
@@ -78,8 +81,21 @@ export type UserType = {
 }
 
 export type RegistrationApiType = {
-    addedUser: UserType
+    addedUser: AddedUserType
     error?: string
+}
+export type AddedUserType = {
+    created: string
+    email: string
+    isAdmin: boolean
+    name: string
+    publicCardPacksCount: number
+    rememberMe: boolean
+    updated: string
+    verified?: boolean
+    avatar?: string
+    __v: number
+    _id: string
 }
 
 export type ChangeUserProfileType = {
