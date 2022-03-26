@@ -2,7 +2,7 @@
   "name": "boring",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://nikolay-evsevitskiy.github.io/work-project",
+  "homepage": "https://nikolay-evsevitskiy.github.io/Cards",
   "dependencies": {
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^12.0.0",

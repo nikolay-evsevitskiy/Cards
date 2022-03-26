@@ -6,6 +6,7 @@ import RoutesFunk from "./routes/RoutesFunk";
 import Header from "./header/Header";
 import {store} from "../m2-bll/store";
 
+
 function App() {
     return (
         <div className="App">
