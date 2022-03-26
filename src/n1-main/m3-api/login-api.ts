@@ -15,8 +15,8 @@ export const loginUser = {
     login(userData: UserDataType) {
         return instance.post<UserType>('/auth/login', userData)
     },
-    registration(email: string, password: string) {
-        return instance.post<RegistrationApiType>('/auth/register', {email, password})
+    registration(data: RegistrationDataType) {
+        return instance.post<RegistrationApiType>('/auth/register', data)
     },
     auth() {
         return instance.post<RegistrationApiType>('/auth/me', {})
@@ -46,6 +46,10 @@ export type ForgotDataType = {
     email: string
     password: string
     message: string
+}
+export type RegistrationDataType = {
+    email: string
+    password: string
 }
 export type SetNewPasswordDataType = {
     password: string
