@@ -1,0 +1,44 @@
+.bg {
+    background-color: rgba(212, 211, 255, 0.98);
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.content {
+    font-weight: bold;
+    font-size: 80px;
+    line-height: 100px;
+    letter-spacing: 30px;
+    text-shadow: 1px 0 1px #000,
+    0 1px 1px #000,
+    -1px 0 1px #000,
+    0 -1px 1px #000;
+}
+
+.firstSymbol {
+    display: inline-block;
+    color: rgba(255, 80, 31, 0.75);
+}
+
+.secondSymbol {
+    display: inline-block;
+    color: rgba(255, 80, 31, 0.73);
+}
+
+.thirdSymbol {
+    display: inline-block;
+    color: rgba(255, 80, 31, 0.73);
+}
+
+.description {
+    font-weight: bolder;
+    font-size: 25px;
+    line-height: 150px;
+    letter-spacing: 5px;
+}
