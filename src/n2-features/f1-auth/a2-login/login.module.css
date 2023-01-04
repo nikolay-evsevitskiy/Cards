@@ -2,19 +2,63 @@
     display: flex;
     width: 100%;
     height: 100vh;
-    border: red solid 2px;
     justify-content: center;
     align-items: center;
+    background-color: #2ecc71;
 }
 
 .mainBlock {
-    max-width: 413px;
-    min-width: 170px;
+    min-width: 300px;
     height: 80vh;
-    background-color: #2ecc71;
+    max-height: 500px;
     border-radius: 10px;
+    padding: 0 15px 0 15px;
+    background-color: white;
+
 }
 
 .inputField {
+    width: 100%;
+    height: 30%;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    font-size: small;
+    text-align: right;
+}
 
+.inputField input {
+    border: none;
+    outline: none;
+    padding: 5px 0 8px 0;
+    width: 100%;
+    font-size: 18px;
+    border-bottom: solid 1px #efefef;
+}
+.inputField label {
+    opacity: 0.5;
+    position: absolute;
+    top: 10px;
+    left: 0;
+    transition: all 0.2s ease;
+    font-size: 18px;
+}
+.inputField label:focus {
+    color: orange;
+}
+
+.footerBlock {
+    width: 100%;
+    height: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.signUpBlock {
+    width: 100%;
+    height: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 }
