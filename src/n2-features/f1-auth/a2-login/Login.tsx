@@ -7,19 +7,28 @@ const Login = () => {
             <div className={loginStyles.mainBlock}>
                 <h1>Cards app</h1>
                 <h2>Sign In</h2>
-                <div className={loginStyles.inputField}>
-                    <label htmlFor='txtEmail'>email</label>
-                    <input id='txtEmail' type='email'/>
-                    <input type={'password'}/>
-                    <div>Forgot Password</div>
-                </div>
-                <div className={loginStyles.footerBlock}>
-                    <button>Login</button>
-                    <div className={loginStyles.signUpBlock}>
-                        <div>Don't have an account?</div>
-                        <button>Sign up</button>
+                <form>
+                    <div className={loginStyles.inputBlock}>
+                        <input className={loginStyles.inputField} type='email' required/>
+                        <label className={loginStyles.inputLabel}>Email</label>
+                    </div>
+                    <div className={loginStyles.inputBlock}>
+                        <input className={loginStyles.inputField} type='password' required/>
+                        <label className={loginStyles.inputLabel}>Password</label>
+                    </div>
+                    <div className={loginStyles.forgotBox}>
+                        <div className={loginStyles.forgotButton}>
+                            Forgot Password
+                        </div>
+                    </div>
+                    <div className={loginStyles.action}>
+                        <button className={loginStyles.actionButton}>Login</button>
                     </div>
 
+                </form>
+                <div className={loginStyles.cardInfo}>
+                    <p>Don't have an account?</p>
+                    <a href={'#'}>Sign up</a>
                 </div>
             </div>
         </div>
