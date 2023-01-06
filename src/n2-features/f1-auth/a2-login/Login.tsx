@@ -1,7 +1,16 @@
-import React from 'react';
+import React, {useState} from 'react';
 import loginStyles from './login.module.css';
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faEye} from '@fortawesome/free-solid-svg-icons';
+import {faEyeSlash} from '@fortawesome/free-solid-svg-icons';
+
 
 const Login = () => {
+    const [toggleIconPassword, setToggleIconPassword] = useState<boolean>(true)
+    const iconPasswordHandler = () => {
+        setToggleIconPassword(!toggleIconPassword)
+    }
+
     return (
         <div className={loginStyles.mainContainer}>
             <div className={loginStyles.mainBlock}>
@@ -13,8 +22,12 @@ const Login = () => {
                         <label className={loginStyles.inputLabel}>Email</label>
                     </div>
                     <div className={loginStyles.inputBlock}>
-                        <input className={loginStyles.inputField} type='password' required/>
+                        <input className={loginStyles.inputField} type={toggleIconPassword ? 'password' : 'text'}
+                               required/>
+                        <FontAwesomeIcon icon={toggleIconPassword ? faEye : faEyeSlash} inverse={true}
+                                         onClick={iconPasswordHandler} className={loginStyles.eyeIcon}/>
                         <label className={loginStyles.inputLabel}>Password</label>
+
                     </div>
                     <div className={loginStyles.forgotBox}>
                         <div className={loginStyles.forgotButton}>
