@@ -19,6 +19,9 @@ const Header = () => {
                 <span>
                     <Link to={PATH.REGISTRATION}>Registration</Link>
                 </span>
+                <span>
+                    <Link to={PATH.PASSWORD_RECOVERY}>Password recovery</Link>
+                </span>
 
             </p>
         </div>

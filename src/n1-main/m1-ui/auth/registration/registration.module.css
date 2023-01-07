@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
+
+*, *:after, *:before {
+    box-sizing: border-box;
+}
+
+.mainContainer {
+    font-family: "DM Sans", sans-serif;
+    line-height: 1.5;
+    background: linear-gradient(#141e30, #243b55);
+    padding: 0 2rem;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.mainBlock {
+    width: 400px;
+    height: 550px;
+    padding: 30px;
+    background: rgba(0, 0, 0, .5);
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, .6);
+    border-radius: 10px;
+}
+
+.mainBlock h1, h2 {
+    margin: 0 0 20px;
+    padding: 0;
+    color: #fff;
+    text-align: center;
+}
+
+
+.inputBlock {
+    position: relative;
+}
+
+
+.inputField {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    background: transparent;
+}
+
+.inputLabel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.inputField:focus ~ .inputLabel,
+.inputField:valid ~ .inputLabel {
+    top: -20px;
+    left: 0;
+    color: #03e9f4;
+    font-size: 12px;
+}
+
+.eyeIcon {
+    position: absolute;
+    right: 10px;
+    bottom: 37px;
+}
+
+.action button {
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 18px;
+    overflow: hidden;
+    transition: .5s;
+    margin-top: 40px;
+    border-color: #fff;
+    border-radius: 5px;
+}
+
+.actionButton{
+    color: #03e9f4;
+}
+
+.actionCancelButton {
+    color: #8597a3;
+}
+
+.actionCancelButton:hover {
+    cursor: pointer;
+    background: #8597a3;
+    color: #fff;
+    border-radius: 5px;
+    border-color: #8597a3;
+    box-shadow: 0 0 5px #8597a3,
+    0 0 25px #8597a3,
+    0 0 50px #8597a3,
+    0 0 100px #8597a3;
+    opacity: 30%;
+}
+
+.actionButton:hover {
+    cursor: pointer;
+    background: #03e9f4;
+    color: #fff;
+    border-radius: 5px;
+    border-color: #03e9f4;
+    box-shadow: 0 0 5px #03e9f4,
+    0 0 25px #03e9f4,
+    0 0 50px #03e9f4,
+    0 0 100px #03e9f4;
+}
+
+.action {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px 0 20px;
+}
+
+

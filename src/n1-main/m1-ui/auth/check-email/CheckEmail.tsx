@@ -1,6 +1,6 @@
 import React from 'react';
 
-const PasswordRecovery = () => {
+const CheckEmail = () => {
     return (
         <div>
             <h2>Password recovery</h2>
@@ -8,4 +8,4 @@ const PasswordRecovery = () => {
     );
 };
 
-export default PasswordRecovery;
+export default CheckEmail;
