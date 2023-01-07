@@ -16,6 +16,9 @@ const Header = () => {
                 <span>
                     <Link to={PATH.PROFILE}>Profile</Link>
                 </span>
+                <span>
+                    <Link to={PATH.REGISTRATION}>Registration</Link>
+                </span>
 
             </p>
         </div>

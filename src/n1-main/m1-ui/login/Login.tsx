@@ -27,7 +27,6 @@ const Login = () => {
                         <FontAwesomeIcon icon={toggleIconPassword ? faEye : faEyeSlash} inverse={true}
                                          onClick={iconPasswordHandler} className={loginStyles.eyeIcon}/>
                         <label className={loginStyles.inputLabel}>Password</label>
-
                     </div>
                     <div className={loginStyles.forgotBox}>
                         <div className={loginStyles.forgotButton}>
@@ -37,7 +36,6 @@ const Login = () => {
                     <div className={loginStyles.action}>
                         <button className={loginStyles.actionButton}>Login</button>
                     </div>
-
                 </form>
                 <div className={loginStyles.cardInfo}>
                     <p>Don't have an account?</p>
@@ -45,7 +43,6 @@ const Login = () => {
                 </div>
             </div>
         </div>
-
     );
 };
 
