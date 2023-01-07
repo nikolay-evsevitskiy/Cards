@@ -79,6 +79,7 @@
 .forgotButton {
     padding: 0 5px 0 5px;
     color: #8597a3;
+    transition: .5s;
 }
 
 .forgotButton:hover {
@@ -87,6 +88,7 @@
     color: white;
     border-radius: 5px;
     background-color: #8597a3;
+    opacity: 30%;
     box-shadow: 0 0 5px #8597a3,
     0 0 25px #8597a3,
     0 0 50px #8597a3,
@@ -108,7 +110,6 @@
     padding: 10px 20px;
     color: #03e9f4;
     font-size: 16px;
-    text-decoration: none;
     text-transform: uppercase;
     overflow: hidden;
     transition: .5s;
