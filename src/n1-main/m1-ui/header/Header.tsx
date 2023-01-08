@@ -7,14 +7,11 @@ const Header = () => {
         <div>
             <h1>Head</h1>
             <p>
+                 <span>
+                    <Link to={PATH.PROFILE}>Profile</Link>
+                </span>
                 <span>
                     <Link to={PATH.LOGIN}>Login </Link>
-                </span>
-                <span>
-                    <Link to={PATH.TEST}>Test </Link>
-                </span>
-                <span>
-                    <Link to={PATH.PROFILE}>Profile</Link>
                 </span>
                 <span>
                     <Link to={PATH.REGISTRATION}>Registration</Link>
@@ -22,7 +19,12 @@ const Header = () => {
                 <span>
                     <Link to={PATH.PASSWORD_RECOVERY}>Password recovery</Link>
                 </span>
-
+                <span>
+                    <Link to={PATH.CHECK_EMAIL}>Check email</Link>
+                </span>
+                <span>
+                    <Link to={PATH.CREATE_NEW_PASSWORD}>Create new password</Link>
+                </span>
             </p>
         </div>
     );

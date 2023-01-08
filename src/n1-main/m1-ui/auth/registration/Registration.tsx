@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import loginStyles from "./registration.module.css";
+import style from "./registration.module.css";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faEye, faEyeSlash} from "@fortawesome/free-solid-svg-icons";
 
@@ -9,32 +9,32 @@ const Registration = () => {
     const passwordVisionHandler = () => setPasswordVision(!passwordVision);
     const passwordConfirmVisionHandler = () => setPasswordConfirmVision(!passwordConfirmVision);
     return (
-        <div className={loginStyles.mainContainer}>
-            <div className={loginStyles.mainBlock}>
+        <div className={style.mainContainer}>
+            <div className={style.mainBlock}>
                 <h1>Cards app</h1>
                 <h2>Sign Up</h2>
                 <form>
-                    <div className={loginStyles.inputBlock}>
-                        <input className={loginStyles.inputField} type='email' required/>
-                        <label className={loginStyles.inputLabel}>Email</label>
+                    <div className={style.inputBlock}>
+                        <input className={style.inputField} type='email' required/>
+                        <label className={style.inputLabel}>Email</label>
                     </div>
-                    <div className={loginStyles.inputBlock}>
-                        <input className={loginStyles.inputField} type={passwordVision ? 'password' : 'text'}
+                    <div className={style.inputBlock}>
+                        <input className={style.inputField} type={passwordVision ? 'password' : 'text'}
                                required/>
                         <FontAwesomeIcon icon={passwordVision ? faEye : faEyeSlash} inverse={true}
-                                         onClick={passwordVisionHandler} className={loginStyles.eyeIcon}/>
-                        <label className={loginStyles.inputLabel}>Password</label>
+                                         onClick={passwordVisionHandler} className={style.eyeIcon}/>
+                        <label className={style.inputLabel}>Password</label>
                     </div>
-                    <div className={loginStyles.inputBlock}>
-                        <input className={loginStyles.inputField} type={passwordConfirmVision ? 'password' : 'text'}
+                    <div className={style.inputBlock}>
+                        <input className={style.inputField} type={passwordConfirmVision ? 'password' : 'text'}
                                required/>
                         <FontAwesomeIcon icon={passwordConfirmVision ? faEye : faEyeSlash} inverse={true}
-                                         onClick={passwordConfirmVisionHandler} className={loginStyles.eyeIcon}/>
-                        <label className={loginStyles.inputLabel}>Confirm password</label>
+                                         onClick={passwordConfirmVisionHandler} className={style.eyeIcon}/>
+                        <label className={style.inputLabel}>Confirm password</label>
                     </div>
-                    <div className={loginStyles.action}>
-                        <button className={loginStyles.actionCancelButton}>Cancel</button>
-                        <button className={loginStyles.actionButton}>Register</button>
+                    <div className={style.action}>
+                        <button className={style.actionCancelButton}>Cancel</button>
+                        <button className={style.actionButton}>Register</button>
                     </div>
                 </form>
             </div>
