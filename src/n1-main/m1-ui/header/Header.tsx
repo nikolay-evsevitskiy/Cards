@@ -25,6 +25,9 @@ const Header = () => {
                 <span>
                     <Link to={PATH.CREATE_NEW_PASSWORD}>Create new password</Link>
                 </span>
+                <span>
+                    <Link to={'/error'}>Error 404</Link>
+                </span>
             </p>
         </div>
     );
