@@ -6,11 +6,10 @@ const Error404 = () => {
     return (
         <div className={styles.mainBlock}>
             <Typewriter
-                onInit={(typewriter) => {
-                    typewriter.typeString('404, page not found...')
-                        .pauseFor(2500)
-                        .deleteAll()
-                        .start();
+                options={{
+                    strings: ['Error 404', 'Page not found...'],
+                    autoStart: true,
+                    loop: true,
                 }}
             />
         </div>
