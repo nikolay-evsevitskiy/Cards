@@ -1,4 +1,4 @@
-import {ForgotDataType, loginUser, SetNewPasswordDataType, UserDataType, UserType} from "../m3-api/login-api";
+import {ForgotDataType, LoginParamsType, loginUser, SetNewPasswordDataType, UserType} from "../m3-api/login-api";
 import {Dispatch} from "redux";
 import {AxiosError} from "axios";
 
@@ -63,7 +63,7 @@ export const setSendNewPassword = (sendNewPassword: boolean) => ({
     }
 } as const)
 
-export const setLoginUser = (userData: UserDataType) => (dispatch: Dispatch<ActionsType>) => {
+export const setLoginUser = (userData: LoginParamsType) => (dispatch: Dispatch<ActionsType>) => {
     dispatch(setFetching(true))
     loginUser.login(userData)
         .then((res) => {

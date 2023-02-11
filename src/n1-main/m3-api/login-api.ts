@@ -3,16 +3,17 @@ import axios from "axios";
 
 const instance = axios.create({
     baseURL:
-    //'https://neko-back.herokuapp.com/2.0'
         process.env.REACT_APP_BACK_URL_CARDS
-        || 'http://localhost:7542/2.0/'
+        || 'http://localhost:7542/2.0/',
+    withCredentials: true,
+    //'https://neko-back.herokuapp.com/2.0'
 })
 
 export const loginUser = {
     pingServer(date: Date = new Date()) {
         return instance.get<PingServerType>(`/ping?frontTime=${date}`)
     },
-    login(userData: UserDataType) {
+    login(userData: LoginParamsType) {
         return instance.post<UserType>('/auth/login', userData)
     },
     registration(data: RegistrationDataType) {
@@ -40,9 +41,9 @@ export type UpdateUserModelType = {
     name: string, avatar: string
 }
 
-export type UserDataType = {
+export type LoginParamsType = {
     email: string
-    from: string
+    password: string
     rememberMe: boolean
 }
 export type ForgotDataType = {

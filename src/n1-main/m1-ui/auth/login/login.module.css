@@ -18,7 +18,7 @@
 
 .mainBlock {
     width: 400px;
-    height: 550px;
+    height: 600px;
     padding: 30px;
     background: rgba(0, 0, 0, .5);
     box-sizing: border-box;
@@ -42,6 +42,7 @@
 
 .inputField {
     width: 100%;
+    background-color: white;
     padding: 10px 0;
     font-size: 16px;
     color: #fff;
@@ -94,6 +95,7 @@
     0 0 50px #8597a3,
     0 0 100px #8597a3;
 }
+
 .eyeIcon {
     position: absolute;
     right: 10px;
