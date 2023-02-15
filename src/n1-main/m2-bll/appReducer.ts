@@ -1,69 +1,33 @@
-import {Dispatch} from "redux";
-import {loginUser} from "../m3-api/login-api";
-import {AxiosError} from 'axios';
-
-const initialState: InitialStateType = {
-    isLogIn: false,
-    isInitialisation: false,
+const initialState: initialStateType = {
+    isLoggedIn: false,
+    statusLoading: false,
     error: null,
 }
 
-export const appReducer = (state = initialState, action: ActionsType): InitialStateType => {
+export const appReducer = (state: initialStateType = initialState, action: ActionsType) => {
     switch (action.type) {
-        case 'APP/LOGGED-IN':
-        case 'APP/INITIALIZATION':
-        case 'APP/ERROR':
-            return {
-                ...state,
-                ...action.payload
-            }
-        default:
-            return state
+        case "APP/SET-ERROR":
+            return {...state, error: action.error}
+        case "APP/SET-IS-LOGGED-IN":
+            return {...state, isLoggedIn: action.isLoggedIn}
+        case "APP/SET-STATUS-LOADING":
+            return {...state, statusLoading: action.status}
     }
 
 }
 
-export const setLogIn = (isLoggedIn: boolean) => {
-    return {
-        type: 'APP/LOGGED-IN', payload: {isLoggedIn}
-    } as const
-}
+//action creators
+export const setIsLoggedIn = (isLoggedIn: boolean) => ({type: 'APP/SET-IS-LOGGED-IN', isLoggedIn} as const)
+export const setError = (error: string | null) => ({type: 'APP/SET-ERROR', error} as const)
+export const setStatusLoading = (status: boolean) => ({type: 'APP/SET-STATUS-LOADING', status} as const)
 
-export const setInitialization = (isInitialization: boolean) => {
-    return {
-        type: 'APP/INITIALIZATION', payload: {isInitialization}
-    } as const
-}
 
-export const setError = (error: string | null) => {
-    return {type: 'APP/ERROR', payload: {error}} as const
+export type initialStateType = {
+    isLoggedIn: boolean
+    statusLoading: boolean
+    error: string | null
 }
-
-export const initialization = () => (dispatch: Dispatch<ActionsType>) => {
-    loginUser.auth()
-        .then(res => {
-            if (res.data.addedUser._id) {
-                dispatch(setLogIn(true))
-                dispatch(setError(null))
-                //dispatch(setUserData(res.data.addedUser))
-            }
-        })
-        .catch((e: AxiosError) => {
-            dispatch(setLogIn(false))
-            dispatch(setError(e.response?.data.error))
-        })
-        .finally(() => {
-            dispatch(setInitialization(true))
-        })
-}
-
-type InitialStateType = {
-    isLogIn: boolean
-    isInitialisation: boolean
-    error: null | string
-}
-
-type ActionsType =
-    ReturnType<typeof setLogIn>
-    | ReturnType<typeof setInitialization>
-    | ReturnType<typeof setError>
+type SetIsLoggedInType = ReturnType<typeof setIsLoggedIn>
+type SetErrorType = ReturnType<typeof setError>
+type SetStatusLoadingType = ReturnType<typeof setStatusLoading>
+type ActionsType = SetIsLoggedInType | SetErrorType | SetStatusLoadingType
