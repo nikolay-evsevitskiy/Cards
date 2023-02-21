@@ -12,6 +12,8 @@ export const appReducer = (state: initialStateType = initialState, action: Actio
             return {...state, isLoggedIn: action.isLoggedIn}
         case "APP/SET-STATUS-LOADING":
             return {...state, statusLoading: action.status}
+        default:
+            return state
     }
 
 }

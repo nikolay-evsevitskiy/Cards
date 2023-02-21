@@ -5,9 +5,12 @@ import {faEye} from '@fortawesome/free-solid-svg-icons';
 import {faEyeSlash} from '@fortawesome/free-solid-svg-icons';
 import {useFormik} from "formik";
 import {LoginParamsType, loginUser} from "../../../m3-api/login-api";
+import {setLoginUser} from "../../../m2-bll/loginReducer";
+import {useDispatch} from "react-redux";
 
 
 const Login = () => {
+    const dispatch = useDispatch()
     const [toggleIconPassword, setToggleIconPassword] = useState<boolean>(true)
     const iconPasswordHandler = () => {
         setToggleIconPassword(!toggleIconPassword)
@@ -34,11 +37,7 @@ const Login = () => {
             return errors;
         },
         onSubmit: values => {
-            loginUser.pingServer()
-                .then((data) => {
-                    alert(data.data.ping)
-                })
-            alert(JSON.stringify(values, null, 2));
+            dispatch(setLoginUser(values))
             formik.resetForm()
         },
     })
