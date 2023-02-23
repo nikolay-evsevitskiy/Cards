@@ -4,17 +4,23 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faEye} from '@fortawesome/free-solid-svg-icons';
 import {faEyeSlash} from '@fortawesome/free-solid-svg-icons';
 import {useFormik} from "formik";
-import {LoginParamsType, loginUser} from "../../../m3-api/login-api";
+import {LoginParamsType} from "../../../m3-api/login-api";
 import {setLoginUser} from "../../../m2-bll/loginReducer";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
+import {Loader} from "../../common/Loader/Loader";
+import {RootStateType} from "../../../m2-bll/store";
+import {Link, Navigate} from "react-router-dom";
+import {PATH} from "../../routes/RoutesFunk";
 
 
 const Login = () => {
     const dispatch = useDispatch()
+    const isFetching = useSelector<RootStateType, boolean>(state => state.login.isFetching)
     const [toggleIconPassword, setToggleIconPassword] = useState<boolean>(true)
     const iconPasswordHandler = () => {
         setToggleIconPassword(!toggleIconPassword)
     }
+
     const formik = useFormik({
         initialValues: {
             email: '',
@@ -68,20 +74,24 @@ const Login = () => {
                         <label className={loginStyles.inputLabel}>Password</label>
                     </div>
                     <div className={loginStyles.forgotBox}>
-                        <div className={loginStyles.forgotButton}>
-                            Forgot Password
-                        </div>
+                        <Link className={loginStyles.forgotButton} to={PATH.PASSWORD_RECOVERY}>Forgot password?</Link>
                     </div>
                     <div className={loginStyles.action}>
-                        <button className={loginStyles.actionButton} type={'submit'}>
+                        <button className={loginStyles.actionButton}
+                                type={'submit'}
+                                disabled={isFetching}
+                        >
                             Login
                         </button>
+                    </div>
+                    <div className={loginStyles.loaderBlock}>
+                        {isFetching && <Loader size={35}/>}
                     </div>
                 </form>
 
                 <div className={loginStyles.cardInfo}>
                     <p>Do not have an account?</p>
-                    <a href={'#'}>Sign up</a>
+                    <Link className={loginStyles.signUpButton} to={PATH.REGISTRATION}>Sign up</Link>
                 </div>
             </div>
         </div>
