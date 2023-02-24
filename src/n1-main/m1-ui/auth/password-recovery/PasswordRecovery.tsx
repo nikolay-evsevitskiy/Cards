@@ -1,8 +1,18 @@
-import React from 'react';
+import React, {ChangeEvent, useState} from 'react';
 import style from "./passwordRecovery.module.css";
+import {Link} from "react-router-dom";
+import {PATH} from "../../routes/RoutesFunk";
+import {useSelector} from "react-redux";
+import {RootStateType} from "../../../m2-bll/store";
+import {Loader} from "../../common/Loader/Loader";
 
 
 const PasswordRecovery = () => {
+    const isFetching = useSelector<RootStateType, boolean>(state => state.login.isFetching)
+    const [localInputState, setLocalInputState] = useState<string>('')
+    const inputHandler = (e: ChangeEvent<HTMLInputElement>) => {
+        setLocalInputState(e.currentTarget.value)
+    }
     return (
         <div className={style.mainContainer}>
             <div className={style.mainBlock}>
@@ -10,7 +20,8 @@ const PasswordRecovery = () => {
                 <h2>Forgot your password?</h2>
                 <form>
                     <div className={style.inputBlock}>
-                        <input className={style.inputField} type='email' required/>
+                        <input value={localInputState} onChange={inputHandler} className={style.inputField} type='email'
+                               required/>
                         <label className={style.inputLabel}>Email</label>
                     </div>
                     <p className={style.explainedBlock}>
@@ -19,10 +30,13 @@ const PasswordRecovery = () => {
                     <div className={style.action}>
                         <button className={style.actionButton}>Send instructions</button>
                     </div>
+                    <div className={style.loaderBlock}>
+                        {isFetching && <Loader size={35}/>}
+                    </div>
                 </form>
                 <div className={style.cardInfo}>
                     <p>Did you remember your password?</p>
-                    <a href={'#'}>Try logging in</a>
+                    <Link to={PATH.LOGIN}>Try logging in</Link>
                 </div>
             </div>
         </div>
