@@ -48,7 +48,7 @@ export type LoginParamsType = {
 }
 export type ForgotDataType = {
     email: string
-    password: string
+    from: string
     message: string
 }
 export type RegistrationDataType = {
